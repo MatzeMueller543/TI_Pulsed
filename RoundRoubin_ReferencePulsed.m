@@ -8,7 +8,7 @@
 % v1: 30-Nov-2021: initial version
 
 clearvars;clc;close all
-addpath('functions')
+%addpath('functions')
 
 %% Calculate and plot coordinates
 Coordinate      =  CalculateCoordinate;
@@ -67,4 +67,4 @@ Reference_10min = Calculate10minStastics_Reference(Reference,Tstart,Tend);
 Reference_10min.LOS_TI_N = Reference_10min.LOS_N_std./Reference_10min.LOS_N_mean;
 Reference_10min.LOS_TI_S = Reference_10min.LOS_S_std./Reference_10min.LOS_S_mean;
 WriteReferenceFile(Reference_10min,'ReferencePulsed.csv')
-Reference.U_S 
+Reference.U_S;
