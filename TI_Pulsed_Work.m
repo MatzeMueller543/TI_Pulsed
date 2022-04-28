@@ -60,7 +60,7 @@ r_srt_S_string = ['R^2 = ' , num2str(r_srt_S)]; %zu String für Plot
 
 x_r = 0.5*x_N(2);
 y_r = 0.2*x_N(2);
- 
+
 figure('name','comparison TI');
 subplot(1,2,1);
 hold on; grid on; box on;
@@ -86,15 +86,8 @@ axis equal
 xlim(x_S)
 ylim(x_S)
 
-
-
-
-
-
-
-
-
-
+%% Comparison Reference and Lidar data
+ComparisonData(Reference_10min,Lidar_10min) 
 
 
 
