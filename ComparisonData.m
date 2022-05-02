@@ -27,24 +27,28 @@ r_L_std = corrcoef(Lidar_10min.LOS_N_std,Lidar_10min.LOS_S_std);
 r_sq_R_TI = r_R_TI(1,2)^2;
 r_sq_R_str_TI = ['R^2 = ' , num2str(r_sq_R_TI)];
 r_sq_R_mean = r_R_mean(1,2)^2;
-r_sq_R_str_mean = ['R^2 = ' , num2str(r_sq_R_mean)];
+r_sq_R_str_mean = ['R^2_m_e_a_n = ' , num2str(r_sq_R_mean)];
 r_sq_R_std = r_R_std(1,2)^2;
-r_sq_R_str_std = ['R^2 = ' , num2str(r_sq_R_std)];
+r_sq_R_str_std = ['R^2_s_t_d = ' , num2str(r_sq_R_std)];
 r_sq_L_TI = r_L_TI(1,2)^2;
 r_sq_L_str_TI = ['R^2 = ' , num2str(r_sq_L_TI)];
 r_sq_L_mean = r_L_mean(1,2)^2;
-r_sq_L_str_mean = ['R^2 = ' , num2str(r_sq_L_mean)];
+r_sq_L_str_mean = ['R^2_m_e_a_n = ' , num2str(r_sq_L_mean)];
 r_sq_L_std = r_L_std(1,2)^2;
-r_sq_L_str_std = ['R^2 = ' , num2str(r_sq_L_std)];
+r_sq_L_str_std = ['R^2_s_t_d = ' , num2str(r_sq_L_std)];
 
 x_r_pos = 0.5*x_max(2);
 y_r_pos = 0.2*x_max(2);
+x_r_pos_2 = 0.5*x_max_2(2);
+y_r_pos_2 = 0.2*x_max_2(2);
 
 figure('name','comparison Referencedata');
 subplot(2,2,1);
 hold on; grid on;box on;
 plot(Reference_10min.LOS_N_mean,Reference_10min.LOS_S_mean,'.')
 plot(Reference_10min.LOS_N_std,Reference_10min.LOS_S_std,'.')
+text(x_r_pos_2,y_r_pos_2,r_sq_R_str_mean);
+text(x_r_pos_2,y_r_pos_2-1,r_sq_R_str_std);
 plot(x_max_2,y_R_mean)
 plot(x_max_2,y_R_std)
 title('Reference mean and std N to S')
@@ -53,11 +57,14 @@ ylabel('mean and std Reference_S')
 axis equal
 xlim(x_max_2)
 ylim(x_max_2)
+legend mean std
 
 subplot(2,2,2);
 hold on; grid on;box on;
 plot(Lidar_10min.LOS_N_mean,Lidar_10min.LOS_S_mean,'.')
 plot(Lidar_10min.LOS_N_std,Lidar_10min.LOS_S_std,'.')
+text(x_r_pos_2,y_r_pos_2,r_sq_L_str_mean);
+text(x_r_pos_2,y_r_pos_2-1,r_sq_L_str_std);
 plot(x_max_2,y_L_mean)
 plot(x_max_2,y_L_std)
 title('Lidar mean and std N to S')
@@ -66,6 +73,7 @@ ylabel('mean and std Lidar_S')
 axis equal
 xlim(x_max_2)
 ylim(x_max_2)
+legend mean std
 
 subplot(2,2,3);
 hold on; grid on;box on;
